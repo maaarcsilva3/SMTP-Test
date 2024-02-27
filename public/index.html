@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="sendMailButton">Click me</button>
+
+    <script>
+        document.getElementById('sendMailButton').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/sendmail', { method: 'GET' });
+                const result = await response.text();
+                alert(result);
+            } catch (error) {
+                console.error('Error sending mail:', error);
+                alert('An error occurred while sending email.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
